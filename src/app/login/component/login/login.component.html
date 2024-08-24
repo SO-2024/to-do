@@ -1,0 +1,16 @@
+<form [formGroup]="loginForm">
+    <h2> Login</h2>
+    <div class="control-row">
+        <div class="control no-margin"> 
+        <label for="email">Email</label> 
+        <input id="email" type="text" formControlName="email" />
+    </div>
+
+    <div class="control no-margin">
+        <label for="password">password</label> 
+        <input id="password" type="password" formControlName="password" />
+    </div>
+
+    <button (click)="onSubmit()" class="button">Login</button> //event
+    </div>
+</form>

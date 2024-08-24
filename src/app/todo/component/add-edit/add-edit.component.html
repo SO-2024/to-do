@@ -1,0 +1,28 @@
+<form [formGroup]="addEditForm">
+    <h2> {{title}} </h2>
+    <div class="control-row">
+        <div class="control no-margin">
+            <label for="title">Title</label>
+            <input id="title" type="text" formControlName="title" required />
+        </div>
+
+        <div class="control-row">
+            <div class="control no-margin">
+                <label for="description">Description</label>
+                <input id="description" type="text" formControlName="description" required />
+            </div>
+
+            <div class="control no-margin">
+                <label for="dueDate">Due Date</label>
+                <input id="dueDate" type="text" formControlName="dueDate" required />
+            </div>
+
+            <div class="control no-margin">
+                <label for="isCompleted">is Completed ?</label>
+                <input id="isCompleted" type="text" formControlName="isCompleted" required />
+            </div>
+
+            <button (click)="onAddEdit()" class="button">Add</button>
+        </div>
+    </div>
+</form>

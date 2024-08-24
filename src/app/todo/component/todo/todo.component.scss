@@ -1,0 +1,12 @@
+.todobox {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: rgba(0,0,0,0.8) 0 0 10px;
+    cursor: pointer;
+}
+
+.todobox h3 {
+    color: blue;
+}
