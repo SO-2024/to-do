@@ -1,16 +1,32 @@
-<form [formGroup]="loginForm">
-    <h2> Login</h2>
-    <div class="control-row">
-        <div class="control no-margin"> 
-        <label for="email">Email</label> 
-        <input id="email" type="text" formControlName="email" />
-    </div>
-
-    <div class="control no-margin">
-        <label for="password">password</label> 
-        <input id="password" type="password" formControlName="password" />
-    </div>
-
-    <button (click)="onSubmit()" class="button">Login</button> //event
-    </div>
-</form>
+<div class="loginContainer">
+  <div class="loginFormBox">
+    <header>Login</header>
+    <form [formGroup]="loginForm">
+      <div class="loginElementDiv">
+        <mat-form-field class="loginFormElement">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" type="text" placeholder="Email" type="text" required>
+          <mat-error *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</mat-error>
+          <mat-error *ngIf="loginForm.get('email')?.errors?.['email']">Please enter a valid email address.</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="loginElementDiv">
+        <mat-form-field class="loginFormElement">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" type="password" minlength="6" maxlength="6" placeholder="Password"
+            type="password" required>
+          <mat-error *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</mat-error>
+          <mat-error
+            *ngIf="loginForm.get('password')?.errors?.['minlength'] || loginForm.get('password')?.errors?.['maxlength']">
+            Password should be at least 6 characters.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="buttonContainer">
+        <button [disabled]="!loginForm.valid" (click)="onLogin()" class="loginBtn">
+          Login
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
     {
@@ -11,6 +12,7 @@ export const routes: Routes = [
     },
     {
         path: 'home', //screen name only home
+        // canActivate: [authGuard],
         loadChildren: () => import('./todo/todo.module').then(m => m.TodoModule) //path todo
     },
     {

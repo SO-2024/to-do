@@ -1,12 +1,88 @@
-.todobox {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    border-radius: 20px;
-    box-shadow: rgba(0,0,0,0.8) 0 0 10px;
-    cursor: pointer;
+::placeholder {
+  color: #757575;
+  opacity: 1;
 }
 
-.todobox h3 {
-    color: blue;
+.taskWrapper {
+  width: 70vw;
+}
+
+.taskContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.todoDescCard {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todoActionCard {
+  display: flex;
+  // gap: 10px;
+}
+
+.todoDescCard h5,
+.todoCard p {
+  margin: 0 !important;
+}
+
+.todoCard {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 10px 20px;
+  // flex: 1;
+  margin: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.SeachBoxContainer {
+  padding: 25px 30px 0 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-container {
+  display: flex;
+  padding: 0;
+  width: 50%;
+
+  ::ng-deep .mdc-button__label {
+    display: flex;
+    flex-grow: 1;
+  }
+
+  .search-input {
+    background: transparent;
+    color: #212121;
+    vertical-align: middle;
+    font-size: 16px;
+    width: 100%;
+    line-height: 2;
+    padding: 5px 10px;
+    border: 0;
+    outline: none;
+    box-shadow: inset 0 -1px 1px -1px #cccccc, inset 0 1px 1px -1px #cccccc,
+      inset 1px 0 1px -1px #cccccc;
+  }
+}
+
+// .search-submit {
+//   background: #d500f9;
+//   color: #ffffff;
+//   vertical-align: middle;
+//   padding: 0 10px;
+//   border: 0;
+//   outline: none;
+//   cursor: pointer;
+// }
+
+// .search-submit:hover {
+//   background: #ab47bc;
+// }
+
+.search-submit i {
+  font-size: 24px;
 }

@@ -1,7 +1,7 @@
-export class Todo {
-    id: number | undefined;
+export class Task {
+    id?: number | undefined;
     title: string | undefined;
     description : string | undefined;
-    dueDate: string | undefined;
-    isCompleted: string | undefined;
+    dueDate: Date | undefined;
+    status: boolean | undefined;
 }

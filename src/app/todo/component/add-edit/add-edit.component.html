@@ -1,28 +1,42 @@
-<form [formGroup]="addEditForm">
-    <h2> {{title}} </h2>
+<h2 mat-dialog-title> {{title}} </h2>
+<mat-dialog-content>
+  <form [formGroup]="addEditForm">
     <div class="control-row">
-        <div class="control no-margin">
-            <label for="title">Title</label>
-            <input id="title" type="text" formControlName="title" required />
-        </div>
+      <div>
+        <mat-form-field class="formElement">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" placeholder="Title" type="text">
+          <mat-error *ngIf="addEditForm.get('title')?.errors?.['required']"> Title is required.</mat-error>
+        </mat-form-field>
+      </div>
 
-        <div class="control-row">
-            <div class="control no-margin">
-                <label for="description">Description</label>
-                <input id="description" type="text" formControlName="description" required />
-            </div>
+      <div>
+        <mat-form-field class="formElement">
+          <mat-label>Description</mat-label>
+          <input matInput formControlName="description" placeholder="Description" type="text">
+          <mat-error *ngIf="addEditForm.get('description')?.errors?.['required']"> Description is required.</mat-error>
+        </mat-form-field>
+      </div>
 
-            <div class="control no-margin">
-                <label for="dueDate">Due Date</label>
-                <input id="dueDate" type="text" formControlName="dueDate" required />
-            </div>
+      <div>
+        <mat-form-field class="formElement">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [min]="minDate" formControlName="dueDate" placeholder="MM/DD/YYYY" [matDatepicker]="picker">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="addEditForm.get('dueDate')?.invalid"> Please enter a valid date in MM / DD / YYYY format.</mat-error>
+        </mat-form-field>
+      </div>
 
-            <div class="control no-margin">
-                <label for="isCompleted">is Completed ?</label>
-                <input id="isCompleted" type="text" formControlName="isCompleted" required />
-            </div>
-
-            <button (click)="onAddEdit()" class="button">Add</button>
-        </div>
+      <div>
+        <mat-checkbox type="checkbox" formControlName="status">Mark As Completed!</mat-checkbox>
+      </div>
     </div>
-</form>
+  </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [disabled]="!addEditForm.valid" (click)="onAddOrUpdateTask()" class="button">{{btnTitle}}</button>
+</mat-dialog-actions>

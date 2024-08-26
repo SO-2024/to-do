@@ -1,0 +1,8 @@
+.formElement {
+  width: 100%;
+}
+
+::ng-deep .mat-internal-form-field>label  {
+  margin-bottom: 0;
+  margin-top: 3px;
+}

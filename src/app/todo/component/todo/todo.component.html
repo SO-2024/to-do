@@ -1,18 +1,36 @@
-<div>
-    <div>
-        <div>
-            <input type="text" >
+<div class="container">
+  <form [formGroup]="searchForm">
+    <div class="SeachBoxContainer">
+      <button mat-stroked-button class="input-container">
+        <input type="search" class="search-input" minlength="6" formControlName="searchInput" placeholder="Search..." />
+        <button mat-icon-button type="submit" class="search-submit" name="submit" (click)="getTaskByTitle()">
+          <mat-icon>search</mat-icon>
+        </button>
+      </button>
+      <div>
+        <button (click)="openAddEditPopup()" mat-mini-fab aria-label="icon button with a add icon">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <div class="taskContainer">
+    @for (task of taskList; track task.id) {
+    <div class="todoCard">
+      <div class="todoDescCard">
+        <h5>{{task.title}}</h5>
+        <div class="todoActionCard">
+          <button mat-icon-button (click)="openAddEditPopup(task, true)" aria-label="icon button with a edit icon">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button (click)="openDeletePopup(task)" mat-icon-button aria-label="icon button with a delete icon">
+            <mat-icon>delete</mat-icon>
+          </button>
         </div>
-        <!-- search box -->
+      </div>
+      <p>{{task.description}}</p>
     </div>
-    <div>
-        @for (todo of todoList; track todo.id) {
-            <div class="todobox">
-                <h3>{{todo.title}}</h3>
-                <p>{{todo.description}}</p>
-                <span (click)="openAddEditPopup(todo, true)" class="material-symbols-outlined">edit</span>
-                <span class="material-symbols-outlined">delete</span>
-            </div>
-        }
-    </div>
+    }
+  </div>
 </div>
