@@ -4,11 +4,12 @@ import { FormGroup, FormControl, Validators, ReactiveFormsModule, FormsModule } 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { User } from '../../models/user';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [ReactiveFormsModule, MatFormFieldModule, FormsModule, MatInputModule, NgIf],
+  imports: [ReactiveFormsModule, MatFormFieldModule, FormsModule, MatInputModule, NgIf, RouterLink],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss'
 })

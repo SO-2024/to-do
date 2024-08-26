@@ -16,21 +16,25 @@
   </form>
 
   <div class="taskContainer">
-    @for (task of taskList; track task.id) {
-    <div class="todoCard">
-      <div class="todoDescCard">
-        <h5>{{task.title}}</h5>
-        <div class="todoActionCard">
-          <button mat-icon-button (click)="openAddEditPopup(task, true)" aria-label="icon button with a edit icon">
-            <mat-icon>edit</mat-icon>
-          </button>
-          <button (click)="openDeletePopup(task)" mat-icon-button aria-label="icon button with a delete icon">
-            <mat-icon>delete</mat-icon>
-          </button>
+    @for (task of taskList; track task) {
+      <div class="todoCard">
+        <div class="todoDescCard">
+          <h5>{{task.title}}</h5>
+          <div class="todoActionCard">
+            <button mat-icon-button (click)="openAddEditPopup(task, true)" aria-label="icon button with a edit icon">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button (click)="openDeletePopup(task)" mat-icon-button aria-label="icon button with a delete icon">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
         </div>
+        <p>{{task.description}}</p>
       </div>
-      <p>{{task.description}}</p>
-    </div>
+    } @empty {
+      <div class="textMsg">
+        No to-dos have been created. Please create one to see it here.
+      </div>
     }
   </div>
 </div>

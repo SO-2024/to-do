@@ -37,6 +37,10 @@
         <button [disabled]="!signupForm.valid" (click)="onSignup()" class="signupBtn">SignUp</button>
       </div>
 
+      <div class="loginLinkDiv">
+        Already have an account? <a [routerLink]="['/login']">Log in</a>
+      </div>
+
     </form>
   </div>
 </div>

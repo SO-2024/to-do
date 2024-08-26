@@ -12,7 +12,7 @@ export const routes: Routes = [
     },
     {
         path: 'home', //screen name only home
-        // canActivate: [authGuard],
+        canActivate: [authGuard],
         loadChildren: () => import('./todo/todo.module').then(m => m.TodoModule) //path todo
     },
     {

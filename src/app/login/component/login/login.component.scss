@@ -10,6 +10,12 @@
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
+.signupLinkDiv {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
 .loginFormBox {
   padding: 2rem;
 }
